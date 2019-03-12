@@ -1,0 +1,37 @@
+{% for orderitem in orderitem_list_c %}
+<tr>
+    <td>
+        <p class="mb-0">
+            {{ forloop.counter }}.
+            {% firstof orderitem.item.pizza orderitem.item.sub orderitem.item.pasta orderitem.item.salad orderitem.item.dinner %}
+        </p>
+        <small>{% if orderitem.item.pizza %}
+            - {{ orderitem.toppings.all|join:', ' }}
+            {% elif orderitem.extra %}
+            - Extra Cheese
+            {% else %}
+            -
+            {% endif %}
+        </small>
+    </td>
+    <td class="text-right">{{ orderitem.item.price }}</td>
+    <td class="text-right">{{ orderitem.quantity }}</td>
+    <td class="text-right">{{ orderitem.subtotal }}</td>
+
+
+    <td>
+        <form action="{% url 'delete-item' orderitem.id %}" method="post" class="js-orderitem-delete">
+            {% csrf_token %}
+            <input type="submit" value="&times;" class="btn btn-outline-danger btn-sm">
+        </form>
+    </td>
+
+</tr>
+{% endfor %}
+<tr>
+    <td></td>
+    <td></td>
+    <td class="text-right">Total: </td>
+    <td class="text-right"><strong>{{ total.subtotal__sum|floatformat:2 }}</strong></td>
+    <td></td>
+</tr>

@@ -1,0 +1,162 @@
+{% extends "orders/base.html" %}
+
+{% load static %}
+
+{% block title %}
+Menu
+{% endblock %}
+
+{% block content %}
+
+<section class="page-section cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <div class="cta-inner text-center rounded">
+                    <h2 class="section-heading mb-5">
+                        <span class="section-heading-lower">Menu</span>
+                        <span class="section-heading-upper">Order on-line</span>
+                    </h2>
+                    <nav class="navbar">
+                        <a class="navbar-brand mx-auto" href="#pizzas_reg">Regular</a>
+                        <a class="navbar-brand mx-auto" href="#pizzas_sic">Sicilian</a>
+                        <a class="navbar-brand mx-auto" href="#subs">Subs</a>
+                        <a class="navbar-brand mx-auto" href="#pastas">Pastas</a>
+                        <a class="navbar-brand mx-auto" href="#salads">Salads</a>
+                        <a class="navbar-brand mx-auto" href="#dinners">Dinner</a>
+                    </nav>
+
+                    <h3 id="pizzas_reg">Regular Pizzas</h3>
+                    <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+                        <li class="d-flex">
+                            Name
+                            <span class="ml-auto">Small </span>
+                            <span class="ml-2">Large</span>
+                        </li>
+                        {% for s,l in pizzas_reg %}
+                        <li class="list-unstyled-item list-hours-item d-flex">
+                            {{ s.name }}
+                            <span class="ml-auto">{{ s.price }} <a href="{{ s.get_absolute_url }}"><i class="fas fa-cart-plus"></i></a> {{ l.price }} <a href="{{ l.get_absolute_url }}"><i class="fas fa-cart-plus"></i></a></span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+
+                    <nav class="navbar">
+                        <a class="navbar-brand mx-auto" href="#pizzas_reg">Regular</a>
+                        <a class="navbar-brand mx-auto" href="#pizzas_sic">Sicilian</a>
+                        <a class="navbar-brand mx-auto" href="#subs">Subs</a>
+                        <a class="navbar-brand mx-auto" href="#pastas">Pastas</a>
+                        <a class="navbar-brand mx-auto" href="#salads">Salads</a>
+                        <a class="navbar-brand mx-auto" href="#dinners">Dinner</a>
+                    </nav>
+                    <h3 id="pizzas_sic">Sicilian Pizzas</h3>
+                    <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+                        <li class="d-flex">
+                            Name
+                            <span class="ml-auto">Small </span>
+                            <span class="ml-2">Large</span>
+                        </li>
+                        {% for s,l in pizzas_sic %}
+                        <li class="list-unstyled-item list-hours-item d-flex">
+                            {{ s.name }}
+                            <span class="ml-auto">{{ s.price }} <a href="{{ s.get_absolute_url }}"><i class="fas fa-cart-plus"></i></a> {{ l.price }} <a href="{{ l.get_absolute_url }}"><i class="fas fa-cart-plus"></i></a></span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+
+                    <nav class="navbar">
+                        <a class="navbar-brand mx-auto" href="#pizzas_reg">Regular</a>
+                        <a class="navbar-brand mx-auto" href="#pizzas_sic">Sicilian</a>
+                        <a class="navbar-brand mx-auto" href="#subs">Subs</a>
+                        <a class="navbar-brand mx-auto" href="#pastas">Pastas</a>
+                        <a class="navbar-brand mx-auto" href="#salads">Salads</a>
+                        <a class="navbar-brand mx-auto" href="#dinners">Dinner</a>
+                    </nav>
+                    <h3 id="subs">Subs</h3>
+                    <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+                        <li class="d-flex">
+                            Name
+                            <span class="ml-auto">Small </span>
+                            <span class="ml-2">Large</span>
+                        </li>
+                        {% for s,l in subs %}
+                        <li class="list-unstyled-item list-hours-item d-flex">
+                            {{ s.name }}
+                            <span class="ml-auto">{{ s.price }} <a href="{{ s.get_absolute_url }}"><i class="fas fa-cart-plus"></i></a> {{ l.price }} <a href="{{ l.get_absolute_url }}"><i class="fas fa-cart-plus"></i></a></span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+
+                    <nav class="navbar">
+                        <a class="navbar-brand mx-auto" href="#pizzas_reg">Regular</a>
+                        <a class="navbar-brand mx-auto" href="#pizzas_sic">Sicilian</a>
+                        <a class="navbar-brand mx-auto" href="#subs">Subs</a>
+                        <a class="navbar-brand mx-auto" href="#pastas">Pastas</a>
+                        <a class="navbar-brand mx-auto" href="#salads">Salads</a>
+                        <a class="navbar-brand mx-auto" href="#dinners">Dinner</a>
+                    </nav>
+                    <h3 id="pastas">Pastas</h3>
+                    <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+                        <li class="d-flex">
+                            Name
+                            <span class="ml-auto">Price</span>
+                        </li>
+                        {% for pasta in pastas %}
+                        <li class="list-unstyled-item list-hours-item d-flex">
+                            {{ pasta.name }}
+                            <span class="ml-auto">{{ pasta.price }} <a href="{{ pasta.get_absolute_url }}"><i class="fas fa-cart-plus"></i></a></span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+
+                    <nav class="navbar">
+                        <a class="navbar-brand mx-auto" href="#pizzas_reg">Regular</a>
+                        <a class="navbar-brand mx-auto" href="#pizzas_sic">Sicilian</a>
+                        <a class="navbar-brand mx-auto" href="#subs">Subs</a>
+                        <a class="navbar-brand mx-auto" href="#pastas">Pastas</a>
+                        <a class="navbar-brand mx-auto" href="#salads">Salads</a>
+                        <a class="navbar-brand mx-auto" href="#dinners">Dinner</a>
+                    </nav>
+                    <h3 id="salads">Salads</h3>
+                    <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+                        <li class="d-flex">
+                            Name
+                            <span class="ml-auto">Price</span>
+                        </li>
+                        {% for salad in salads %}
+                        <li class="list-unstyled-item list-hours-item d-flex">
+                            {{ salad.name }}
+                            <span class="ml-auto">{{ salad.price }} <a href="{{ salad.get_absolute_url }}"><i class="fas fa-cart-plus"></i></a></span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+
+                    <nav class="navbar">
+                        <a class="navbar-brand mx-auto" href="#pizzas_reg">Regular</a>
+                        <a class="navbar-brand mx-auto" href="#pizzas_sic">Sicilian</a>
+                        <a class="navbar-brand mx-auto" href="#subs">Subs</a>
+                        <a class="navbar-brand mx-auto" href="#pastas">Pastas</a>
+                        <a class="navbar-brand mx-auto" href="#salads">Salads</a>
+                        <a class="navbar-brand mx-auto" href="#dinners">Dinner</a>
+                    </nav>
+                    <h3 id="dinners">Dinner Platters</h3>
+                    <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+                        <li class="d-flex">
+                            Name
+                            <span class="ml-auto">Small </span>
+                            <span class="ml-2">Large</span>
+                        </li>
+                        {% for s,l in dinners %}
+                        <li class="list-unstyled-item list-hours-item d-flex">
+                            {{ s.name }}
+                            <span class="ml-auto">{{ s.price }} <a href="{{ s.get_absolute_url }}"><i class="fas fa-cart-plus"></i></a> {{ l.price }} <a href="{{ l.get_absolute_url }}"><i class="fas fa-cart-plus"></i></a></span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

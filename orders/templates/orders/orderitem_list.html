@@ -1,0 +1,63 @@
+{% extends "orders/base.html" %}
+
+{% load static cart_tags %}
+
+{% block title %}
+Shopping cart
+{% endblock %}
+
+{% block content %}
+
+<section class="page-section">
+    <div class="container">
+        <div class="row">
+            <div class="col mx-auto">
+                <div class="bg-faded rounded p-5">
+                    <h2 class="section-heading mb-4">
+                        <span class="section-heading-upper">Shopping cart</span>
+                        <span class="section-heading-lower">Product list</span>
+                    </h2>
+                    {% if orderitem_list %}
+                    <div class="table-responsive">
+                        <table class="table table-striped mb-4" id="orderitems-table">
+                            <thead class="thead-inverse">
+                                <tr>
+                                    <th>Product</th>
+                                    <th class="text-right">Price</th>
+                                    <th class="text-right">Quantity</th>
+                                    <th class="text-right">Subtotal</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="js-orderitems-include">
+                                {% include 'orders/includes/partial_orderitem_list.html' %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <a href="{% url 'checkout' %}" class="btn btn-primary" id="js-checkout" role="button">Checkout</a>
+                        </div>
+                    </div>
+
+                    {% else %}
+                    <div class="row mt-5">
+                        <div class="col">
+                            <p>Shopping cart is empty.</p>
+                        </div>
+                    </div>
+                    {% endif %}
+
+                    <div class="row my-1">
+                        <div class="col">
+                            <a href="{% url 'menu' %}" class="btn btn-outline-secondary">Continue shopping</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

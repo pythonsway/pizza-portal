@@ -1,0 +1,30 @@
+{% extends "orders/base.html" %}
+
+{% load static %}
+
+{% block title %}
+Permission denied
+{% endblock %}
+
+{% block content %}
+
+<section class="page-section">
+    <div class="container">
+        <div class="row">
+            <div class="col mx-auto">
+                <div class="bg-faded rounded p-5">
+                    <h2 class="section-heading mb-4">
+                        <span class="section-heading-upper">Permission denied</span>
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col">
+                <a href="{% url 'index' %}" class="btn btn-outline-secondary">Go home</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

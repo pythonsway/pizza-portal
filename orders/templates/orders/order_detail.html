@@ -1,0 +1,84 @@
+{% extends "orders/base.html" %}
+
+{% load static cart_tags %}
+
+{% block title %}
+Order details
+{% endblock %}
+
+{% block content %}
+
+<section class="page-section">
+    <div class="container">
+        <div class="row">
+            <div class="col mx-auto">
+                <div class="bg-faded rounded p-5">
+                    <h2 class="section-heading mb-4">
+                        <span class="section-heading-upper">Order</span>
+                        <span class="section-heading-lower"> #{{ order.id }}</span>
+                    </h2>
+
+
+                    
+                    <div class="table-responsive">
+                        <table class="table table-striped mb-4">
+                            <thead class="thead-inverse">
+                                <tr>
+                                    <th>Product</th>
+                                    <th class="text-right">Price</th>
+                                    <th class="text-right">Quantity</th>
+                                    <th class="text-right">Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for orderitem in order.orderitem_set.all %}
+                                <tr>
+                                    <td>
+                                        <p class="mb-0">
+                                            {{ forloop.counter }}.
+                                            {% firstof orderitem.item.pizza orderitem.item.sub orderitem.item.pasta orderitem.item.salad orderitem.item.dinner %}
+                                        </p>
+                                        <small>{% if orderitem.item.pizza %}
+                                            - {{ orderitem.toppings.all|join:', ' }}
+                                            {% elif orderitem.item.sub %}
+                                            - Extra Cheese
+                                            {% else %}
+                                            -
+                                            {% endif %}
+                                        </small>
+                                    </td>
+                                    <td class="text-right">{{ orderitem.item.price }}</td>
+                                    <td class="text-right">{{ orderitem.quantity }}</td>
+                                    <td class="text-right">{{ orderitem.subtotal }}</td>
+                                </tr>
+                                {% endfor %}
+                                <tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td class="text-right">Total: </td>
+                                    <td class="text-right"><strong>{{ order.total }}</strong></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                </div>
+                
+                <p><strong>User name:</strong> {{ user.get_username }}</p>
+                <p><strong>Delivery address:</strong> {{ order.address }}</p>
+                <p><strong>Message:</strong> {{ order.message }}</p>
+                
+
+
+                    <div class="row mt-1">
+                        <div class="col">
+                            <a href="{% url 'index' %}" class="btn btn-outline-secondary">Home page</a>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+</section>
+
+{% endblock %}

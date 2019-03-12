@@ -1,0 +1,35 @@
+{% extends "orders/base.html" %}
+
+{% load static %}
+
+{% block title %}
+Order
+{% endblock %}
+
+{% block content %}
+
+<section class="page-section">
+    <div class="container">
+        <div class="row">
+            <div class="col mx-auto">
+                <div class="bg-faded rounded p-5">
+                    <h2 class="section-heading mb-4">
+                        <span class="section-heading-upper">Order</span>
+                        <span class="section-heading-lower">Additional informations</span>
+                    </h2>
+                    <p><strong>User name:</strong> {{ user.get_username }}</p>
+                    <form method="post" class="mb-4" novalidate>
+                        {% csrf_token %}
+                        {% include 'includes/form.html' %}
+                        <button type="submit" class="btn btn-success">Order</button>
+                        <a href="{% url 'cart' %}" class="btn btn-outline-secondary" role="button">Cancel</a>
+                    </form>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

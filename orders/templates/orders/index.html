@@ -1,0 +1,30 @@
+{% extends "orders/base.html" %}
+
+{% load static %}
+
+{% block title %}
+    Home page
+{% endblock %}
+
+{% block content %}
+
+<section class="page-section clearfix">
+    <div class="container">
+        <div class="intro">
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{% static 'orders/img/intro.jpg' %}" alt="Our restaurant">
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                <h2 class="section-heading mb-4">
+                    <span class="section-heading-upper">Fresh Pizza</span>
+                    <span class="section-heading-lower">Worth eating</span>
+                </h2>
+                <p class="mb-3">We make the best pizza in area. Check our menu.
+                </p>
+                <div class="intro-button mx-auto">
+                    <a class="btn btn-primary btn-xl" href="{{ 'menu' }}">Order on-line</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
