@@ -48,7 +48,7 @@ admin.site.register(Salad)
 admin.site.register(Dinner)
 
 
-# Instead @admin.register decorator 
+## Instead @admin.register decorator 
 # admin.site.register(OrderItem)
 
 # admin.site.register(Pizza, ToppingAdmin)
