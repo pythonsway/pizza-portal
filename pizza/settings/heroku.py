@@ -13,7 +13,7 @@ EMAIL_HOST_USER = 'apikey'
 EMAIL_HOST_PASSWORD = os.getenv('SENDGRID_API_KEY')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-# DEFAULT_FROM_EMAIL = 'Pizza Portal <noreply@fghfhgfhgf.net>'
+DEFAULT_FROM_EMAIL = 'Pizza Restaurant <noreply@pizzarestaurantnotrealemail.com>'
 
 ALLOWED_HOSTS = ['cs50w-proj3-pizza.herokuapp.com']
 
